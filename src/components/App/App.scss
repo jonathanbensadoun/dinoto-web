@@ -1,0 +1,12 @@
+@use '@scssVariables' as v;
+
+.container-card {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 2rem;
+}
+.post-card {
+  width: 20vw;
+}
