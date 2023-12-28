@@ -1,6 +1,7 @@
 {
   "name": "react-modele",
   "private": true,
+  "homepage": "https://jonathanbensadoun.github.io/dinoto-web",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -8,7 +9,9 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives",
     "lint:fix": "eslint src/**/*.{js,jsx,ts,tsx} --fix",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^4.0.3",
@@ -30,6 +33,7 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "gh-pages": "^6.1.1",
     "prettier": "^3.0.3",
     "sass": "^1.69.5"
   }
