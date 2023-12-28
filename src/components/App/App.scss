@@ -1,12 +1,126 @@
 @use '@scssVariables' as v;
-
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: 100vh;
+  background: #88b9b5;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
 .container-card {
   width: 100vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 2rem;
+  padding: 0 1rem 1rem 1rem;
 }
 .post-card {
-  width: 20vw;
+  margin-bottom: 1rem;
+  background-color: #edeee8;
+  width: 30%;
+  font-size: 0.35rem;
+  border-radius: 8px;
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+.img-card {
+  border-radius: 8px;
+}
+.post-title {
+  padding: 0.2rem;
+}
+.search {
+  width: 100vw;
+  background-color: #edeee8;
+  margin: 1rem;
+  border-radius: 25px;
+  padding: 0.6rem;
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.2);
+}
+// .container-header {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+// }
+.container-list {
+  background-color: #edeee8;
+  width: 100vw;
+  text-align: center;
+}
+.tilte {
+  padding-top: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+.nav-bar {
+  display: flex;
+  // flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  position: fixed;
+  min-height: 75px;
+  background-color: #edeee8;
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.2);
+}
+.container-list {
+  display: flex;
+}
+.nav-bar-link {
+  padding: 0 0.3rem;
+  color: inherit;
+}
+.nav-bar-burger {
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  color: inherit;
+}
+
+@media screen and (max-width: 767px) {
+  .container-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 2rem;
+  }
+  .nav-bar-link {
+    display: block;
+    padding: 1.5rem;
+    font-size: 5vw;
+  }
+  .nav-bar-burger {
+  }
+  .burger-bar,
+  .burger-bar::before,
+  .burger-bar::after {
+    display: block;
+    width: 40px;
+    height: 3px;
+    position: relative;
+    border-radius: 3px;
+    background-color: #88b9b5;
+  }
+  .burger-bar::before,
+  .burger-bar::after {
+    content: '';
+    position: absolute;
+    left: 0;
+  }
+  .burger-bar::before {
+    transform: translateY(-12px);
+  }
+
+  .burger-bar::after {
+    transform: translateY(12px);
+  }
 }
