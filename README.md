@@ -17,27 +17,26 @@ Pour exécuter Dinoto-Web en local sur votre machine, suivez ces étapes simples
 
    ```bash
    git clone https://github.com/votre-nom-utilisateur/dinoto-web.git
-
    ```
+
 2. Accédez au répertoire du projet :   
 
     ```bash
    cd dinoto-web
+    ```
 
-   ```
 3. Installez les dépendances nécessaires :
-
 
     ```bash
    npm install
+    ```
 
-  ```
 4. Démarrez le serveur de développement :
 
     ```bash
     npm run dev
-
     ```
+
 
 ## Utilisation
 
@@ -47,6 +46,7 @@ Explorez la pagination pour découvrir davantage de dinosaures.
 Profitez de la documentation complète de l'API Dinoto pour comprendre les possibilités offertes par l'API.    
 
 ## Technologies Utilisées
+
 
     - React
     - API Dinoto
