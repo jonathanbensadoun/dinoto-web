@@ -6,17 +6,20 @@ function Header() {
     setShowLinks(!showLinks);
   };
   return (
-    <div className="container-header">
+    <div className="container-header" id="home">
       <nav className={`nav-bar ${showLinks ? 'show-nav' : 'hide-nav'}`}>
         <div className="logo">Dinoto-E</div>
         <ul className="container-list">
           <li className="list">
-            <a href="/" className="nav-bar-link">
+            <a href="#home" className="nav-bar-link">
               Home
             </a>
           </li>
           <li className="list">
-            <a href="/" className="nav-bar-link">
+            <a
+              href="mailto:jonathan.ben-sadoun@oclock.school"
+              className="nav-bar-link"
+            >
               Contact
             </a>
           </li>

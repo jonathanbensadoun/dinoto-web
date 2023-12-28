@@ -28,7 +28,7 @@ body {
   border-radius: 25px;
   background-color: #edeee8;
   color: #88b9b5;
-  margin: 0.5rem;
+  margin: 0.4rem;
   margin-bottom: 1rem;
   box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.1);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
@@ -44,6 +44,7 @@ body {
 }
 .img-card {
   border-radius: 8px;
+  width: 100%;
 }
 .post-title {
   padding: 0.2rem;
