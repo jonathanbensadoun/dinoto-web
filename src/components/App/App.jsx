@@ -2,6 +2,7 @@ import './App.scss';
 
 import Header from '../Header/Header';
 import Card from '../Card/Card';
+import Footer from '../Footer/Footer';
 // import FindOne from '../FindOne/FindOne';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <FindOne dinosaurId={67} /> */}
         <Card />
       </div>
+      <Footer />
     </>
   );
 }

@@ -26,8 +26,13 @@ function Header() {
             </a>
           </li>
         </ul>
-        <button className="nav-bar-burger" onClick={handleShowLinks}>
-          <span className="burger-bar"></span>
+        <button
+          type="button"
+          className="nav-bar-burger"
+          onClick={handleShowLinks}
+          aria-label="Toggle menu"
+        >
+          <span className="burger-bar" />
         </button>
       </nav>
 

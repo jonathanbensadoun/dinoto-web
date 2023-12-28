@@ -1,14 +1,18 @@
 import { useState, useEffect } from 'react';
 
-function StringToUpperCase(string) {
+function stringToUpperCase(string) {
   return string.toUpperCase();
 }
+
 function Card() {
   const [dinos, setDinos] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [pagination, setPagination] = useState({});
 
   useEffect(() => {
-    const apiUrl = `http://dinotoapi.com/api/dinosaures?pagination[page]=1&pagination[pageSize]=100&sort[0]=name&populate=*${
+    const apiUrl = `http://dinotoapi.com/api/dinosaures?pagination[page]=${
+      pagination.page || 1
+    }&pagination[pageSize]=12&sort[0]=name&populate=*${
       searchTerm && `&filters[name][$contains]=${searchTerm.toLowerCase()}`
     }`;
 
@@ -16,12 +20,36 @@ function Card() {
       .then((response) => response.json())
       .then((data) => {
         setDinos(data.data);
+        setPagination(data.meta.pagination);
       })
       .catch((err) => {
         console.log(err.message);
       });
-  }, [searchTerm]);
+  }, [searchTerm, pagination.page]);
+  const handlePageClick = (pageNumber) => {
+    setPagination({ ...pagination, page: pageNumber });
+  };
+  const renderPaginationButtons = () => {
+    if (!pagination.pageCount || pagination.pageCount === 1) {
+      return null; // Pas besoin de boutons de pagination s'il n'y a qu'une page.
+    }
 
+    const buttons = [];
+    for (let i = 1; i <= pagination.pageCount; i++) {
+      buttons.push(
+        <button
+          key={i}
+          type="button"
+          onClick={() => handlePageClick(i)}
+          disabled={i === pagination.page}
+        >
+          {i}
+        </button>
+      );
+    }
+
+    return buttons;
+  };
   return (
     <div className="container-card">
       <input
@@ -31,6 +59,7 @@ function Card() {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
+      <div className="pagination-buttons">{renderPaginationButtons()}</div>
       {dinos &&
         dinos.map((post) => (
           <div className="post-card" key={post.id}>
@@ -40,7 +69,7 @@ function Card() {
               alt={post.attributes.name}
             />
             <h2 className="post-title">
-              {StringToUpperCase(post.attributes.name)}
+              {stringToUpperCase(post.attributes.name)}
             </h2>
           </div>
         ))}
