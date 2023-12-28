@@ -1,8 +1,14 @@
+import { useState } from 'react';
+
 function Header() {
+  const [showLinks, setShowLinks] = useState(false);
+  const handleShowLinks = () => {
+    setShowLinks(!showLinks);
+  };
   return (
     <div className="container-header">
-      <nav className="nav-bar">
-        <div className="logo">DE</div>
+      <nav className={`nav-bar ${showLinks ? 'show-nav' : 'hide-nav'}`}>
+        <div className="logo">Dinoto-E</div>
         <ul className="container-list">
           <li className="list">
             <a href="/" className="nav-bar-link">
@@ -14,8 +20,13 @@ function Header() {
               Contact
             </a>
           </li>
+          <li className="list">
+            <a href="http://dinotoapi.com/doc" className="nav-bar-link">
+              DinotoApi.com
+            </a>
+          </li>
         </ul>
-        <button className="nav-bar-burger">
+        <button className="nav-bar-burger" onClick={handleShowLinks}>
           <span className="burger-bar"></span>
         </button>
       </nav>

@@ -5,7 +5,6 @@
   padding: 0;
 }
 body {
-  height: 100vh;
   background: #88b9b5;
   background-repeat: no-repeat;
   background-position: center;
@@ -15,16 +14,16 @@ body {
   width: 100vw;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 0 1rem 1rem 1rem;
 }
 .post-card {
   margin-bottom: 1rem;
   background-color: #edeee8;
-  width: 30%;
-  font-size: 0.35rem;
+  width: 45%;
+  font-size: 1.3rem;
   border-radius: 8px;
-  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.4);
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
 .img-card {
@@ -51,23 +50,30 @@ body {
   width: 100vw;
   text-align: center;
 }
+.logo {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
 .tilte {
-  padding-top: 1rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  padding-top: 5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 .nav-bar {
+  width: 100vw;
   display: flex;
-  // flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  // align-items: center;
+  justify-content: center;
   padding: 1rem;
   position: fixed;
   min-height: 75px;
   background-color: #edeee8;
-  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.1);
 }
 .container-list {
   display: flex;
+  justify-content: center;
 }
 .nav-bar-link {
   padding: 0 0.3rem;
@@ -79,19 +85,30 @@ body {
   background: transparent;
   border: none;
   color: inherit;
+  display: none;
 }
 
 @media screen and (max-width: 767px) {
+  .post-card {
+    font-size: 0.5rem;
+  }
   .container-list {
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: fixed;
     height: 100vh;
-    left: 0;
-    right: 0;
+
+    right: -100vw;
     bottom: 0;
     padding: 2rem;
+    visibility: hidden;
+    background-color: #edeee8;
+  }
+  .show-nav .container-list {
+    width: 100vw;
+    right: 0;
+    visibility: visible;
   }
   .nav-bar-link {
     display: block;
@@ -99,6 +116,13 @@ body {
     font-size: 5vw;
   }
   .nav-bar-burger {
+    display: block;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+  }
+  .nav-bar-burger:hover {
+    cursor: pointer;
   }
   .burger-bar,
   .burger-bar::before,
@@ -109,6 +133,7 @@ body {
     position: relative;
     border-radius: 3px;
     background-color: #88b9b5;
+    transition: all 0.5s ease-in-out;
   }
   .burger-bar::before,
   .burger-bar::after {
@@ -122,5 +147,15 @@ body {
 
   .burger-bar::after {
     transform: translateY(12px);
+  }
+  .show-nav .burger-bar {
+    width: 0;
+    background: transparent;
+  }
+  .show-nav .burger-bar::before {
+    transform: rotate(45deg);
+  }
+  .show-nav .burger-bar::after {
+    transform: rotate(-45deg);
   }
 }
