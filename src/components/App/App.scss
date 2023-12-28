@@ -56,7 +56,7 @@ body {
 }
 .tilte {
   text-align: center;
-  padding-top: 5rem;
+  padding-top: 5.5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 .nav-bar {
@@ -70,6 +70,9 @@ body {
   min-height: 75px;
   background-color: #edeee8;
   box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.1);
+}
+.nav-bar-link {
+  text-decoration: none;
 }
 .container-list {
   display: flex;
