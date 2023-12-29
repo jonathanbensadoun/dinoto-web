@@ -24,7 +24,7 @@ function Header() {
             </a>
           </li>
           <li className="list">
-            <a href="http://dinotoapi.com/doc" className="nav-bar-link">
+            <a href="https://dinotoapi.com/doc" className="nav-bar-link">
               DinotoApi.com
             </a>
           </li>

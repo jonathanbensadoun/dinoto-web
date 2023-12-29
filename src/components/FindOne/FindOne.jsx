@@ -4,7 +4,7 @@ function FindOne({ dinosaurId }) {
   const [dinosaur, setDinosaur] = useState(null);
 
   useEffect(() => {
-    fetch(`http://dinotoapi.com/api/dinosaures/${dinosaurId}`)
+    fetch(`https://dinotoapi.com/api/dinosaures/${dinosaurId}`)
       .then((response) => response.json())
       .then((data) => {
         setDinosaur(data.data);

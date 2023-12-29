@@ -10,7 +10,7 @@ function Card() {
   const [pagination, setPagination] = useState({});
 
   useEffect(() => {
-    const apiUrl = `http://dinotoapi.com/api/dinosaures?pagination[page]=${
+    const apiUrl = `https://dinotoapi.com/api/dinosaures?pagination[page]=${
       pagination.page || 1
     }&pagination[pageSize]=12&sort[0]=name&populate=*${
       searchTerm && `&filters[name][$contains]=${searchTerm.toLowerCase()}`
@@ -73,6 +73,7 @@ function Card() {
             </h2>
           </div>
         ))}
+      <div className="pagination-buttons">{renderPaginationButtons()}</div>
     </div>
   );
 }

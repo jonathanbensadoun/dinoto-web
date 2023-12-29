@@ -27,7 +27,7 @@ function Footer() {
       </div>
       <div className="container-ball-footer">
         <a
-          href="http://dinotoapi.com/doc"
+          href="https://dinotoapi.com/doc"
           target="_blank"
           rel="noreferrer noopener"
           aria-label="DinotoApi"
