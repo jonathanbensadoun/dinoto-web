@@ -13,13 +13,15 @@ function Card() {
     const apiUrl = `https://dinotoapi.com/api/dinosaures?pagination[page]=${
       pagination.page || 1
     }&pagination[pageSize]=12&sort[0]=name&populate=*${
-      searchTerm && `&filters[name][$contains]=${searchTerm.toLowerCase()}`
+      searchTerm &&
+      `&filters[name][$contains]=${searchTerm.toLowerCase()}&populate=*`
     }`;
 
     fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => {
         setDinos(data.data);
+        console.log(data.data);
         setPagination(data.meta.pagination);
       })
       .catch((err) => {
