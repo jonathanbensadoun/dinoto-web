@@ -1,3 +1,4 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/208e946f-a44d-4281-892a-0ded78fcef29/deploy-status)](https://app.netlify.com/sites/dinoto/deploys)
 # Dinoto-Web
 
 Dinoto-Web est un site web démonstratif qui consomme l'API Dinoto pour présenter les fonctionnalités et les données disponibles dans l'API. L'API Dinoto offre des informations sur les dinosaures, et ce site web a été créé dans le but de mettre en avant ces données de manière conviviale.
