@@ -8,8 +8,12 @@ function Card() {
   const [dinos, setDinos] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [pagination, setPagination] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
+    setIsLoading(true);
+    setError(null);
     const apiUrl = `https://dinotoapi.com/api/dinosaures?pagination[page]=${
       pagination.page || 1
     }&pagination[pageSize]=12&sort[0]=name&populate=*${
@@ -25,6 +29,9 @@ function Card() {
       })
       .catch((err) => {
         console.log(err.message);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }, [searchTerm, pagination.page]);
   const handlePageClick = (pageNumber) => {
@@ -59,8 +66,11 @@ function Card() {
         placeholder="Search..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
+        id="searchField"
       />
       <div className="pagination-buttons">{renderPaginationButtons()}</div>
+      {isLoading && <p>Chargement...</p>}
+      {error && <p>Erreur : {error}</p>}
       {dinos &&
         dinos.map((post) => (
           <div className="post-card" key={post.id}>
