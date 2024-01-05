@@ -13,15 +13,14 @@ function Card() {
     const apiUrl = `https://dinotoapi.com/api/dinosaures?pagination[page]=${
       pagination.page || 1
     }&pagination[pageSize]=12&sort[0]=name&populate=*${
-      searchTerm &&
-      `&filters[name][$contains]=${searchTerm.toLowerCase()}`
+      searchTerm && `&filters[name][$contains]=${searchTerm.toLowerCase()}`
     }`;
 
     fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => {
         setDinos(data.data);
-        console.log(data.data);
+        // console.log(data.data);
         setPagination(data.meta.pagination);
       })
       .catch((err) => {
@@ -33,7 +32,7 @@ function Card() {
   };
   const renderPaginationButtons = () => {
     if (!pagination.pageCount || pagination.pageCount === 1) {
-      return null; // Pas besoin de boutons de pagination s'il n'y a qu'une page.
+      return null;
     }
 
     const buttons = [];
