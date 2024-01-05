@@ -14,7 +14,7 @@ function Card() {
       pagination.page || 1
     }&pagination[pageSize]=12&sort[0]=name&populate=*${
       searchTerm &&
-      `&filters[name][$contains]=${searchTerm.toLowerCase()}&populate=*`
+      `&filters[name][$contains]=${searchTerm.toLowerCase()}`
     }`;
 
     fetch(apiUrl)
@@ -37,7 +37,7 @@ function Card() {
     }
 
     const buttons = [];
-    for (let i = 1; i <= pagination.pageCount; i++) {
+    for (let i = 1; i <= pagination.pageCount; i += i + 1) {
       buttons.push(
         <button
           key={i}
