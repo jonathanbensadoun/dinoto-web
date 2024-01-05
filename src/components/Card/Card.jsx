@@ -36,7 +36,7 @@ function Card() {
     }
 
     const buttons = [];
-    for (let i = 1; i <= pagination.pageCount; i += i + 1) {
+    for (let i = 1; i <= pagination.pageCount; i += 1) {
       buttons.push(
         <button
           key={i}
