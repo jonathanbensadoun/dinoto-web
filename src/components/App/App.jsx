@@ -14,6 +14,7 @@ import Search from '../Search/Search';
 import Epoque from '../Epoque/Epoque';
 import Detail from '../Detail/Detail';
 import Loading from '../Loading/Loading';
+import NotFound from '../NotFound/NotFound';
 
 function App() {
   const dispatch = useDispatch();
@@ -69,6 +70,7 @@ function App() {
               />
             }
           />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
 
