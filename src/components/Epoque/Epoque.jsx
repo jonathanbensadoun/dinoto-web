@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { changeEpoque, changeDinoSelect } from '../../store/dinoSlice';
 
-export default function Epoque({ dinos }) {
+export default function Epoque({ dinos, isDesktopOrLaptop }) {
   const dispatch = useDispatch();
   const handleEpoqueChange = (epoqueId) => {
     dispatch(changeEpoque(epoqueId));
@@ -25,21 +25,27 @@ export default function Epoque({ dinos }) {
           variant="contained"
           onClick={() => handleEpoqueChange(1)}
         >
-          Jurassique
+          {isDesktopOrLaptop
+            ? "Jurassique ( De – 200 à – 145 millions d'années )"
+            : 'Jurassique'}
         </Button>
         <Button
           sx={{ background: '#edeee8', color: '#17242a' }}
           variant="contained"
           onClick={() => handleEpoqueChange(2)}
         >
-          Crétacé
+          {isDesktopOrLaptop
+            ? "Crétacé ( De - 145 millions à - 66 millions d'années )"
+            : 'Crétacé'}
         </Button>
         <Button
           sx={{ background: '#edeee8', color: '#17242a' }}
           variant="contained"
           onClick={() => handleEpoqueChange(3)}
         >
-          Trias
+          {isDesktopOrLaptop
+            ? "Trias ( De – 251 à – 200 millions d'années )"
+            : 'Trias'}
         </Button>
       </Box>
       <Box

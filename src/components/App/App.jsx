@@ -51,7 +51,15 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<Search dinos={dinoData} />} />
-          <Route path="/epoque" element={<Epoque dinos={epoqueData} />} />
+          <Route
+            path="/epoque"
+            element={
+              <Epoque
+                dinos={epoqueData}
+                isDesktopOrLaptop={isDesktopOrLaptop}
+              />
+            }
+          />
           <Route
             path="/detail/:slug"
             element={
