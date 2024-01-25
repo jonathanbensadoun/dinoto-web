@@ -1,0 +1,29 @@
+.container-card-detail {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 2rem;
+}
+
+.card-detail {
+  display: flex;
+  flex-direction: column;
+  &-link {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+  }
+}
+@media (min-width: 768px) {
+  .card-detail {
+    flex-direction: row;
+  }
+  .img-detail {
+    width: 50%;
+  }
+  .container-description {
+    width: 100%;
+  }
+}
