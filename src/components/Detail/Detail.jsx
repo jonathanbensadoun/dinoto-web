@@ -1,16 +1,13 @@
 import './Detail.scss';
 
 import Card from '@mui/material/Card';
-import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import CloseIcon from '@mui/icons-material/Close';
 
 import { Link } from 'react-router-dom';
 
 export default function Detail({ dino, isDesktopOrLaptop }) {
-  // console.log(dino.attributes.hauteur);
   return (
     <div className="container-card-detail">
       <Card

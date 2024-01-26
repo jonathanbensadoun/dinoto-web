@@ -16,6 +16,8 @@ import Detail from '../Detail/Detail';
 import Loading from '../Loading/Loading';
 import NotFound from '../NotFound/NotFound';
 
+import { saveLocalStorage } from '../../store/dinoSlice';
+
 function App() {
   const dispatch = useDispatch();
   const isDesktopOrLaptop = useMediaQuery({
@@ -33,6 +35,8 @@ function App() {
   useEffect(() => {
     const action = { type: 'GET_DINO_FROM_API' };
     dispatch(action);
+    const actionOne = saveLocalStorage();
+    dispatch(actionOne);
   }, [dispatch, searchValue, epoqueValue, dinoSelect]);
 
   // console.log('dataEpoque', epoqueData);
@@ -51,7 +55,9 @@ function App() {
       <div className="page">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/search" element={<Search dinos={dinoData} />} />
+          {!loading && (
+            <Route path="/search" element={<Search dinos={dinoData} />} />
+          )}
           <Route
             path="/epoque"
             element={
@@ -62,7 +68,7 @@ function App() {
             }
           />
           <Route
-            path="/detail/:slug"
+            path="/detail/:id"
             element={
               <Detail
                 dino={oneDinoData}

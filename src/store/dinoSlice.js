@@ -1,10 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
+import dataOneDino from '../data/dataOneDino';
 
 const initialState = {
+  loadingData: true,
   loading: true,
   dinoData: [],
   epoqueData: [],
-  oneDinoData: [],
+  oneDinoData: dataOneDino,
+
   typingValue: '',
   searchValue: '',
   epoqueValue: 1,
@@ -15,6 +18,14 @@ const dinoSlice = createSlice({
   name: 'dino',
   initialState,
   reducers: {
+    saveLocalStorage: (state) => {
+      try {
+        const serialisedState = JSON.stringify(state);
+        localStorage.setItem('persistantState', serialisedState);
+      } catch (e) {
+        console.warn(e);
+      }
+    },
     changeEpoque: (state, action) => {
       return {
         ...state,
@@ -46,8 +57,9 @@ const dinoSlice = createSlice({
     updateData: (state, action) => {
       return {
         ...state,
-        loading: false,
+
         dinoData: action.payload,
+        loading: false,
       };
     },
     typing: (state, action) => {
@@ -74,6 +86,7 @@ export const {
   changeEpoque,
   updateOneDinoData,
   changeDinoSelect,
+  saveLocalStorage,
 } = dinoSlice.actions;
 
 export default dinoSlice.reducer;

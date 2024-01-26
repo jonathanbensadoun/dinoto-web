@@ -50,7 +50,7 @@ export default function Search({ dinos }) {
       >
         {dinos.map((dino) => (
           <Link
-            to={`/detail/${dino.attributes.name}`}
+            to={`/detail/${dino.id}`}
             key={dino.id}
             onClick={() => {
               dispatch(changeDinoSelect(dino.id));
