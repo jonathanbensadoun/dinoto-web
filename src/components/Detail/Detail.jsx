@@ -61,13 +61,22 @@ export default function Detail({ dino, isDesktopOrLaptop }) {
             Famille : {dino.attributes.familles.data[0].attributes.label}
           </Typography>
           <Typography fontSize="1.5rem" marginBottom="0.5rem">
-            Hauteur : {dino.attributes.hauteur / 100} m
+            Hauteur :{' '}
+            {!dino.attributes.hauteur === null
+              ? `${dino.attributes.hauteur / 100} m`
+              : ' -'}{' '}
           </Typography>
           <Typography fontSize="1.5rem" marginBottom="0.5rem">
-            Poids : {dino.attributes.poids} kg
+            Poids :{' '}
+            {!dino.attributes.poids === null
+              ? `${dino.attributes.poids} kg`
+              : ' -'}
           </Typography>
           <Typography fontSize="1.5rem" marginBottom="0.5rem">
-            Longeur : {dino.attributes.longeur / 100} m
+            Longeur :{' '}
+            {!dino.attributes.longeur === null
+              ? `${dino.attributes.longeur / 100} m`
+              : ' -'}
           </Typography>
           <Typography fontSize="2rem" marginBottom="0.3rem">
             Description :{' '}
