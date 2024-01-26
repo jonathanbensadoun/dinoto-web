@@ -22,7 +22,7 @@ export default function FooterMobile() {
             </Link>
           </MenuItem>
           <MenuItem>
-            <Link to="https://dinotoapi.com/doc">
+            <Link to="https://dinotoapi.com/doc" target="_blanc">
               <GiDinosaurBones className="logo-dino" />
             </Link>
           </MenuItem>
