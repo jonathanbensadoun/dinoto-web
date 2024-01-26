@@ -9,14 +9,16 @@ import Button from '@mui/material/Button';
 import Box from '@mui/system/Box';
 
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { changeEpoque, changeDinoSelect } from '../../store/dinoSlice';
+import Loading from '../Loading/Loading';
 
 export default function Epoque({ dinos, isDesktopOrLaptop }) {
   const dispatch = useDispatch();
   const handleEpoqueChange = (epoqueId) => {
     dispatch(changeEpoque(epoqueId));
   };
+  const loadingData = useSelector((state) => state.dino.loadingData);
   return (
     <>
       <Box className="box-btn" marginBottom="1REM">
@@ -48,47 +50,51 @@ export default function Epoque({ dinos, isDesktopOrLaptop }) {
             : 'Trias'}
         </Button>
       </Box>
-      <Box
-        sx={{
-          display: 'flex',
+      {loadingData ? (
+        <Loading />
+      ) : (
+        <Box
+          sx={{
+            display: 'flex',
 
-          flexWrap: 'wrap',
-          justifyContent: 'space-evenly',
-          alignItems: 'center',
-        }}
-      >
-        {dinos.map((dino) => (
-          <Link
-            to={`/detail/${dino.id}`}
-            key={dino.id}
-            onClick={() => {
-              dispatch(changeDinoSelect(dino.id));
-            }}
-          >
-            <Card
-              sx={{ maxWidth: 345, background: '#edeee8' }}
-              className="card-search"
+            flexWrap: 'wrap',
+            justifyContent: 'space-evenly',
+            alignItems: 'center',
+          }}
+        >
+          {dinos.map((dino) => (
+            <Link
+              to={`/detail/${dino.id}`}
+              key={dino.id}
+              onClick={() => {
+                dispatch(changeDinoSelect(dino.id));
+              }}
             >
-              <CardMedia
-                component="img"
-                height="100%"
-                image={dino.attributes.img}
-                alt={dino.attributes.name}
-              />
-              <CardContent>
-                <Typography
-                  gutterBottom
-                  variant="h5"
-                  component="div"
-                  textAlign="center"
-                >
-                  {dino.attributes.name}
-                </Typography>
-              </CardContent>
-            </Card>
-          </Link>
-        ))}
-      </Box>
+              <Card
+                sx={{ maxWidth: 345, background: '#edeee8' }}
+                className="card-search"
+              >
+                <CardMedia
+                  component="img"
+                  height="100%"
+                  image={dino.attributes.img}
+                  alt={dino.attributes.name}
+                />
+                <CardContent>
+                  <Typography
+                    gutterBottom
+                    variant="h5"
+                    component="div"
+                    textAlign="center"
+                  >
+                    {dino.attributes.name}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Link>
+          ))}
+        </Box>
+      )}
     </>
   );
 }

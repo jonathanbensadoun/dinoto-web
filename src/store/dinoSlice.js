@@ -18,6 +18,12 @@ const dinoSlice = createSlice({
   name: 'dino',
   initialState,
   reducers: {
+    updateLoadingData: (state, action) => {
+      return {
+        ...state,
+        loadingData: action.payload,
+      };
+    },
     saveLocalStorage: (state) => {
       try {
         const serialisedState = JSON.stringify(state);
@@ -87,6 +93,7 @@ export const {
   updateOneDinoData,
   changeDinoSelect,
   saveLocalStorage,
+  updateLoadingData,
 } = dinoSlice.actions;
 
 export default dinoSlice.reducer;
