@@ -7,7 +7,7 @@ const callApiMiddlewares = (store) => (next) => (action) => {
     const stateDino = store.getState();
     store.dispatch(updateLoadingData(true));
     fetch(
-      `https://dinotoapi.com/api/dinosaures?pagination[pageSize]=110&sort[0]=name&populate=*&filters[name][$contains]=${stateDino.dino.searchValue.toLowerCase()}`
+      `https://dinotoapi.com/api/dinosaures?pagination[pageSize]=110&sort[0]=name&populate=*&filters[name][$containsi]=${stateDino.dino.searchValue.toLowerCase()}`
     )
       .then((response) => response.json())
       .then((data) => {
