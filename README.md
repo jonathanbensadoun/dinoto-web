@@ -44,7 +44,8 @@ Pour exécuter Dinoto-Web en local sur votre machine, suivez ces étapes simples
 Saisissez le nom d'un dinosaure dans la barre de recherche pour trouver des dinosaures spécifiques.
 Explorez la pagination pour découvrir davantage de dinosaures.
 
-Profitez de la documentation complète de l'API Dinoto pour comprendre les possibilités offertes par l'API.    
+Profitez de la documentation complète de l'API Dinoto pour comprendre les possibilités offertes par l'API. ..    
+
 
 ## Technologies Utilisées
 
